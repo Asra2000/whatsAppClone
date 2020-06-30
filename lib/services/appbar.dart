@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/hp/AndroidStudioProjects/whatsapp_clone/lib/screens/constants.dart';
+import 'constants.dart';
 
 class AppIcons extends StatelessWidget {
   final Icon icon;
@@ -21,8 +21,9 @@ class AppbarCreate extends StatelessWidget implements PreferredSizeWidget{
       title: Text('WhatsApp', style: TextStyle(color: Colors.white, fontSize: 30.0)),
       backgroundColor: Color(0xFF075D55),
       actions: <Widget>[
-        AppIcons(icon: Icon(Icons.search, color: Colors.white,), onpress: (){},),
-        AppIcons(icon: Icon(Icons.message, color: Colors.white,), onpress: (){},),
+        AppIcons(icon: Icon(Icons.search, color: Colors.white,), onpress: (){
+          Navigator.pushNamed(context, '/search');
+        },),
         AppIcons(icon: Icon(Icons.settings, color: Colors.white,), onpress: (){},),
       ],
       bottom: PreferredSize(
@@ -32,13 +33,13 @@ class AppbarCreate extends StatelessWidget implements PreferredSizeWidget{
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               GestureDetector(child: Text('CHATS', style: appbarText,), onTap: (){
-                Navigator.pushNamed(context, '/');
+                Navigator.pushReplacementNamed(context, '/home');
               },),
               GestureDetector(child: Text('STATUS', style: appbarText,), onTap: (){
-                Navigator.pushNamed(context, '/status');
+                Navigator.pushReplacementNamed(context, '/status');
               },),
               GestureDetector(child: Text('CALLS', style: appbarText,), onTap: (){
-                Navigator.pushNamed(context, '/calls');
+                Navigator.pushReplacementNamed(context, '/calls');
               },)
             ],
           ),
